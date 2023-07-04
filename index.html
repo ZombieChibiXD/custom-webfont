@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Webfont Demo</title>
+    <link rel="stylesheet" href="fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+      :root {
+        --blinker-color: #DEADAF;
+        --blinker-width: 0.0625em;
+        --blinker-height: 100%;
+        --blinker-animation: cursor-blink 1.5s steps(2) infinite;
+      }
+      .demo-text::after {
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        content: "⠀";
+        width: var(--blinker-width);
+        background-color: var(--blinker-color);
+        animation: var(--blinker-animation);
+        transition: var(--blinker-animation);
+      }
+      @keyframes cursor-blink {
+        0%  {   opacity: 0;   }
+        25% {   opacity: .5;  }
+        50% {   opacity: 1;   }
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>Custom Webfont Demo</h1>
+      <p>
+        A demo of using custom webfonts. All fonts here are custom fonts that are made by me or my friends.
+      </p>
+      <p>
+        Fonts are for demo purposes only and are not meant to be used in commercial projects.
+      </p>
+      <!-- Refer to license.txt for more info -->
+      <p>
+        Refer to the <a href="LICENSE.md">License</a> for more info.
+      </p>
+      <article x-data="{ text_input: '', text_empty: 'the quick brown fox jumps over the lazy dog' }">
+        <header>
+          <label for="text_input">Input text here</label>
+          <input type="text" id="text_input" x-model="text_input" placeholder="Input text here..." />
+        </header>
+        <main>
+          <details open>
+            <summary>Doodle Regular</summary>
+            <small>Creator: [To be filled]</small>
+            <ul style="font-family: 'doodleregular', 'Courier New', Courier, monospace;">
+              <li x-text="!text_input ? text_empty : text_input" style="font-size: xx-small;"></li>
+              <li x-text="!text_input ? text_empty : text_input" style="font-size: x-small;"></li>
+              <li x-text="!text_input ? text_empty : text_input" style="font-size: small;"></li>
+              <li x-text="!text_input ? text_empty : text_input" style="font-size: medium;"></li>
+              <li x-text="!text_input ? text_empty : text_input" style="font-size: large;"></li>
+              <li x-text="!text_input ? text_empty : text_input" style="font-size: x-large;"></li>
+              <li x-text="!text_input ? text_empty : text_input" style="font-size: xx-large;"></li>
+            </ul>
+          </details>
+        </main>
+        <footer>
+          Made by <a rel="external" href="https://www.github.com/ZombieChibiXD">@ZombieChibiXD</a>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html>
